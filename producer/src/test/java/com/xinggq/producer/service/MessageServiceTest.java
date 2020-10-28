@@ -1,6 +1,5 @@
 package com.xinggq.producer.service;
 
-import com.google.gson.Gson;
 import com.xinggq.producer.ProducerApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -12,16 +11,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ProducerApplication.class)
-public class TestServiceTest {
+public class MessageServiceTest {
 
   @Autowired
-  private TestService testService;
+  private MessageProducer messageProducer;
 
   @Test
   public void selectById(){
-    com.xinggq.producer.entity.Test test=testService.selectById(456);
-    Gson gson = new Gson();
-    System.out.printf(gson.toJson(test));
+
+    messageProducer.processA();
   }
 
 }
