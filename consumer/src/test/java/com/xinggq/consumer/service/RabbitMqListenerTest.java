@@ -1,6 +1,8 @@
-package com.xinggq.producer.service;
+package com.xinggq.consumer.service;
 
-import com.xinggq.producer.ProducerApplication;
+import com.google.gson.Gson;
+import com.xinggq.consumer.ConsumerApplication;
+import com.xinggq.consumer.mq.RabbitMqListener;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,16 +12,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @Slf4j
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ProducerApplication.class)
-public class MessageServiceTest {
+@SpringBootTest(classes = ConsumerApplication.class)
+public class RabbitMqListenerTest {
 
   @Autowired
-  private MessageProducer messageProducer;
+  private RabbitMqListener rabbitMqListener;
 
   @Test
   public void selectById(){
-
-    messageProducer.processA();
+//    rabbitMqListener.sendMqMessage();
+    System.out.println();
   }
 
 }

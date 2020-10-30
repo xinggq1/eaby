@@ -1,8 +1,9 @@
 package com.xinggq.producer.entity;
 
 
-import com.xinggq.common.enums.MessageStatus;
 import com.xinggq.common.utils.SnowflakeIdWorker;
+import com.xinggq.producerapi.enums.MessageStatus;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +15,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Message {
+public class Message implements Serializable {
 
   @Id
   //使用mysql的主键自增策略，不创建hibernate_sequence表

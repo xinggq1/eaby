@@ -1,4 +1,4 @@
-package com.xinggq.common.enums;
+package com.xinggq.producerapi.enums;
 
 
 import lombok.Getter;

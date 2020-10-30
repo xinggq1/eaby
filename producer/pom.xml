@@ -26,6 +26,17 @@
   <dependencies>
 
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>groupId</groupId>
+      <artifactId>producer-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>groupId</groupId>
       <artifactId>common</artifactId>
       <version>${project.version}</version>

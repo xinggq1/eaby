@@ -2,6 +2,10 @@ package com.xinggq.producer.service;
 
 
 import com.xinggq.producer.entity.Message;
+import com.xinggq.producer.mq.MqSender;
+import com.xinggq.producerapi.dto.MqMessage;
+import com.xinggq.producerapi.dto.Mqcontext;
+import com.xinggq.producerapi.enums.RoutKeyingEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +19,8 @@ public class MessageProducer {
   @Autowired
   private MessageService messageService;
 
+  @Autowired
+  private MqSender mqSender;
 
   @Transactional(propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
   public void processA(){
@@ -25,7 +31,9 @@ public class MessageProducer {
     Message message = new Message("这个是消息内容");
     messageService.insert(message);
     //发送到消息队列
-
+    log.info("开始发送到mq");
+    MqMessage mqMessage = MqMessage.buildMsg(new Mqcontext(),message);
+    mqSender.sendToEabyExchange(mqMessage, RoutKeyingEnum.SIMPLE_MESSAGE);
   }
 
 

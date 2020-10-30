@@ -12,6 +12,7 @@
     <module>consumer</module>
     <module>producer</module>
     <module>common</module>
+    <module>producer-api</module>
   </modules>
 
 
