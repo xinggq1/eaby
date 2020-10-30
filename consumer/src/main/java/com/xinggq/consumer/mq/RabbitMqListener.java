@@ -1,7 +1,8 @@
 package com.xinggq.consumer.mq;
 
 
-import java.util.Map;
+import com.google.gson.Gson;
+import com.xinggq.producerapi.dto.MqMessage;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
@@ -13,8 +14,10 @@ public class RabbitMqListener {
 
 
   @RabbitHandler
-  public void process(String testMessage) {
-    System.out.println("DirectReceiver消费者收到消息  : " + testMessage);
+  public void process(MqMessage<String> testMessage) {
+    Gson gson = new Gson();
+    System.out.println("DirectReceiver消费者收到消息  : " + gson.toJson(testMessage));
+//    throw new RuntimeException();
   }
 
 
