@@ -1,6 +1,7 @@
 package com.xinggq.producer.service;
 
 
+import com.google.gson.Gson;
 import com.xinggq.producer.entity.Message;
 import com.xinggq.producer.mq.MqSender;
 import com.xinggq.producerapi.dto.MqMessage;
@@ -32,7 +33,8 @@ public class MessageProducer {
     messageService.insert(message);
     //发送到消息队列
     log.info("开始发送到mq");
-    MqMessage mqMessage = MqMessage.buildMsg(new Mqcontext(),message);
+    Gson gson = new Gson();
+    MqMessage mqMessage = MqMessage.buildMsg(new Mqcontext(),gson.toJson(message));
     mqSender.sendToEabyExchange(mqMessage, RoutKeyingEnum.SIMPLE_MESSAGE);
   }
 

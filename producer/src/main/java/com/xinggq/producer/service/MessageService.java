@@ -1,5 +1,6 @@
 package com.xinggq.producer.service;
 
+
 import com.xinggq.producer.entity.Message;
 import com.xinggq.producer.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;

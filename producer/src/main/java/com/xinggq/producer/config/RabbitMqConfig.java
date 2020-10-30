@@ -7,10 +7,6 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitAdmin;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,11 +14,6 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class RabbitMqConfig {
 
-
-  @Bean
-  public RabbitAdmin rabbitAdmin(@Autowired ConnectionFactory connectionFactory) {
-    return new RabbitAdmin(connectionFactory);
-  }
 
   @Bean
   public DirectExchange exchange(){
